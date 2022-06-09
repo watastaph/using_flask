@@ -1,0 +1,40 @@
+<h3>Subjects Enrolled</h3>
+<table border="1">
+    {% for subject in all_subjects %}
+    <tr>
+        <th>Course Code</th>
+        <td>{{subject.course_code}}</td>
+    </tr>
+
+    <tr>
+        <th>Course Description</th>
+        <td>{{subject.description}}</td>
+    </tr>
+
+    <tr>
+        <th>Semester Offered</th>
+        <td>{{subject.semester_offered}}</td>
+    </tr>
+
+    {% endfor %}
+</table><br>
+
+<h3>Update Subject</h3>
+{% for subject in all_subjects %}
+<form action="/update_subject" method="POST">
+    <label>Enter Course Code:</label>
+    <input type="text" name="course_code" value="{{subject.course_code}}">
+    <label>Enter Course Description:</label>
+    <textarea name="course_description">{{subject.description}}</textarea>
+    <label>Semester Offered</label>
+    <select name="semester">
+        <option value="1st Semester">1st Semester</option>
+        <option value="2nd Semester">2nd Semester</option>
+    </select>
+    <input type="hidden" name="id" value="{{subject.id}}">
+    <input type="submit" value="Update Subject">
+</form>
+
+{% endfor %}
+
+<a href="/main">Go back to main page</a>

@@ -1,0 +1,22 @@
+<h3>Subjects Enrolled</h3>
+<table border="1">
+    {% for subject in all_subjects %}
+    <tr>
+        <th>Course Code</th>
+        <td>{{subject.course_code}}</td>
+    </tr>
+
+    <tr>
+        <th>Course Description</th>
+        <td>{{subject.description}}</td>
+    </tr>
+
+    <tr>
+        <th>Semester Offered</th>
+        <td>{{subject.semester_offered}}</td>
+    </tr>
+
+    {% endfor %}
+</table><br>
+
+<a href="/main">Go back to main page</a>
